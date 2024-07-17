@@ -1,0 +1,47 @@
+
+<script type="text/x-red" data-template-name="you-notify">
+    <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-name"></i> Name</label>
+      <input type="text" id="node-config-input-name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-url"><i class="fa fa-url"></i> Url</label>
+        <input type="text" id="node-config-input-url" />
+      </div>
+    <div class="form-row">
+        <label for="node-config-input-type"><i class="fa fa-cube"></i> Entity</label>
+        <select name="node-config-inputt-typenotify" id="node-config-input-typenotify">
+          <option value="AadaptiveCards">AadaptiveCards/Teams</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+  </script>
+  
+  <script type="text/javascript">
+    RED.nodes.registerType('you-notify', {
+      category: 'config',
+      color:"#48D1CC",
+      defaults: {
+        name: { value: '' },
+        url: { value: '',  required: true },
+        typenotify: { value: '' }
+      },
+      label: function() {
+        return this.name
+      }
+    });
+  </script>
+
+
+<script type="text/markdown" data-help-name="you-notify">
+  
+### you-notify
+
+Configuration node. 
+
+Expected fields:
+
+- `Name`: name of the configuration
+- `Url`: link for sending the notification
+- `Entity`: type of notification to be sent
+</script>

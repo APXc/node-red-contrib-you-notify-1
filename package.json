@@ -1,0 +1,51 @@
+{
+  "name": "@yousolution/node-red-contrib-you-notify",
+  "version": "0.0.1",
+  "description": "Generic node for manage notify",
+  "main": "index.js",
+  "scripts": {
+    "update": "run-script-os",
+    "update:linux:darwin": "npm pack && mv yousolution-node-red-contrib-you-notify-$npm_package_version.tgz ./data && cd data && npm i yousolution-node-red-contrib-you-notify-$npm_package_version.tgz && docker-compose restart",
+    "update:win32": "npm pack && copy yousolution-node-red-contrib-you-notify-%npm_package_version%.tgz .\\data\\ && cd .\\data\\ && npm i yousolution-node-red-contrib-you-notify-%npm_package_version%.tgz && docker-compose restart",
+    "update:default": "npm pack && mv yousolution-node-red-contrib-you-notify-$npm_package_version.tgz ./data && cd data && npm i yousolution-node-red-contrib-you-notify-$npm_package_version.tgz && docker-compose restart"
+  },
+  "keywords": [
+    "node-red",
+    "Notify",
+    "AdaptiveCard",
+    "Teams",
+    "Microsoft",
+    "API",
+    "integration",
+    "youSolution.Cloud"
+  ],
+  "author": "Alessio Pellizzaro <alessio.pellizzaro@innotech.email>",
+  "license": "MPL-2.0",
+  "node-red": {
+    "version": ">=2.0.0",
+    "nodes": {
+      "you-notify": "nodes/notify.js",
+      "you-notify-out": "nodes/notifyOut.js"
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yousolution-cloud/node-red-contrib-you-notify.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node-red-node-test-helper": "^0.3.4",
+    "node-red": "^3.0.2",
+    "node-red-node-test-helper": "^0.3.0",
+    "run-script-os": "^1.1.6"
+  },
+  "dependencies": {
+    "ajv": "^8.16.0",
+    "axios": "^1.7.2"
+  }
+}
